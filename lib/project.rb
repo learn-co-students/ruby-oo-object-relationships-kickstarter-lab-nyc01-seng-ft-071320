@@ -10,7 +10,9 @@ class Project
     end
     
     def backers
-        ProjectBacker.all.map {|backed_project| backed_project.backer if backed_project.project == self}.compact
+        ProjectBacker.all.map do |backed_project|
+            backed_project.backer if backed_project.project == self
+        end.compact
     end
 
 end
